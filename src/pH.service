@@ -1,0 +1,14 @@
+[Unit]
+Description=reef-pi pH
+After=network.target
+
+[Service]
+ExecStart=/var/lib/reef-pi/pH/pH_fetch_data
+WorkingDirectory=/var/lib/reef-pi/pH/
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
