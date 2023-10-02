@@ -10,7 +10,7 @@
 
 void saveToFile(float saveValue, std::string filename){
 	// Check if the value is NaN or less than 2
-	if (isnan(saveValue) || saveValue < 2.0) {
+	if (isnan(saveValue) || saveValue <= 2.0) {
 		// Value does not meet the condition, so return without saving
 		return;
 	}
