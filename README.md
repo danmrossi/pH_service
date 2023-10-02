@@ -1,14 +1,14 @@
-# PH_Service
-Raspbian service to read out the Robo-Tank pH Sensor data without communication errors.
+# pH_service
+Raspbian service to read out the Robo-Tank pH sensor data without communication errors.
 
 ## Installation
 
  - in SSH command console type:
- - sudo wget -c https://github.com/danmrossi/PH_Service/releases/download/1.0/PH_Service_1.0.zip
- - sudo unzip PH_Service_1.0.zip
+ - sudo wget -c https://github.com/danmrossi/pH_service/releases/download/1.0/pH_service_1.0.zip
+ - sudo unzip pH_service_1.0.zip
  - sudo bash install_pH.sh
  
- - The install script will copy all files, start the necessary service and clean up the install files afterwards
+ - the install script will copy all files, start the necessary service and clean up the install files afterwards
  
  - In Reef-Pi go to Configuration->Drivers
  - create 1 file driver in Reef-Pi:
@@ -17,7 +17,7 @@ Raspbian service to read out the Robo-Tank pH Sensor data without communication 
 	- Paths (for each filedriver respectively):
 		- "/var/lib/reef-pi/pH/pH.dat"
 		
- - go to Configuration->Admin and Reload
+ - go to Configuration->Admin and reload
  - go to Configuration->Connectors
 	- create 1 Analog-Inputs:
 		- Name appropriately (e.g. "pH_from_file")
