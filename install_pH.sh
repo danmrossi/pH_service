@@ -2,12 +2,12 @@
 
     echo ""
     echo ""
-    echo "This script will install a separate ph Driver with enhanced error handling for pH monitoring using the Robo-Tank or Atlas-Scientific pH sensors for reef-pi"
+    echo "This script will install pH monitoring using the Robo-Tank or Atlas-Scientific pH sensors for reef-pi and is provided by Sral."
     echo ""
     echo ""
     echo ""
     echo ""
-    echo "Copyright (c) 2023"
+    echo "Copyright (c) 2022 Sral"
     echo ""
     echo "Licensed under the Apache License, Version 2.0 (the 'License');"
     echo "you may not use this file except in compliance with the License."
@@ -29,7 +29,7 @@
     echo ""
     echo ""
 
-    echo "Stopping service and removing old files if they already exist ..."
+    echo "Stopping service and removing old files ..."
     sudo systemctl stop pH.service
     sudo rm -rf /var/lib/reef-pi/pH
 
@@ -50,7 +50,7 @@
     sudo rm -r src/
 	sudo rm -r LICENSE
 	sudo rm -r README.md
-    sudo rm PH_Service_1.0.zip
+    sudo rm pH_service_1.0.zip
     sudo rm install_pH.sh
 
     echo "Establishing and starting service..."
