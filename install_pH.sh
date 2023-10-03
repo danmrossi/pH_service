@@ -2,12 +2,9 @@
 
     echo ""
     echo ""
-    echo "This script will install pH monitoring using the Robo-Tank or Atlas-Scientific pH sensors for reef-pi and is provided by Sral."
+    echo "This script will INSTALL the pH monitoring analog driver using the Robo-Tank or Atlas-Scientific pH sensors for reef-pi"
     echo ""
-    echo ""
-    echo ""
-    echo ""
-    echo "Copyright (c) 2022 Sral"
+    echo "Copyright (c) 2023"
     echo ""
     echo "Licensed under the Apache License, Version 2.0 (the 'License');"
     echo "you may not use this file except in compliance with the License."
@@ -22,7 +19,7 @@
     echo "limitations under the License."
     echo ""
     echo ""
-    echo "press any key to install..."
+    echo "press any key to INSTALL..."
     echo ""
     echo ""
     read input
@@ -31,7 +28,9 @@
 
     echo "Stopping service and removing old files ..."
     sudo systemctl stop pH.service
+    sudo systemctl disable pH.service
     sudo rm -rf /var/lib/reef-pi/pH
+    sudo rm /etc/systemd/system/pH.service
 
     echo "Copying new service and setting execution rights..."
     sudo cp src/pH.service /etc/systemd/system/pH.service
@@ -48,11 +47,11 @@
     
     echo "Deleting install files..."
     sudo rm -r src/
-	sudo rm -r LICENSE
-	sudo rm -r README.md
+	  sudo rm -r LICENSE
+	  sudo rm -r README.md
     sudo rm pH_service_1.0.zip
     sudo rm install_pH.sh
-
+    sudo rm .gitattributes
     echo "Establishing and starting service..."
     sudo systemctl enable pH.service
     sudo systemctl start pH.service
