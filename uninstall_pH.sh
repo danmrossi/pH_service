@@ -2,7 +2,7 @@
 
     echo ""
     echo ""
-    echo "This script will uninstall the pH monitoring analog driver for reef-pi"
+    echo "This script will UNINSTALL the pH monitoring analog driver using the Robo-Tank or Atlas-Scientific pH sensors for reef-pi"
     echo ""
     echo "Copyright (c) 2023"
     echo ""
@@ -19,7 +19,7 @@
     echo "limitations under the License."
     echo ""
     echo ""
-    echo "press any key to uninstall..."
+    echo "press any key to UNINSTALL..."
     echo ""
     echo ""
     read input
