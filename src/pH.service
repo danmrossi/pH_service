@@ -1,5 +1,5 @@
 [Unit]
-Description=reef-pi pH
+Description=Customised Analog pH Driver for reef-pi v1.0
 After=network.target
 
 [Service]
