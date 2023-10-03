@@ -2,7 +2,7 @@
 
     echo ""
     echo ""
-    echo "This script will uninstall the pH monitoring analog driver"
+    echo "This script will uninstall the pH monitoring analog driver for reef-pi"
     echo ""
     echo "Copyright (c) 2023"
     echo ""
