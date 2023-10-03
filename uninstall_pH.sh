@@ -4,7 +4,7 @@
     echo ""
     echo "This script will uninstall the pH monitoring analog driver"
     echo ""
-    echo "Copyright (c) 2023
+    echo "Copyright (c) 2023"
     echo ""
     echo "Licensed under the Apache License, Version 2.0 (the 'License');"
     echo "you may not use this file except in compliance with the License."
