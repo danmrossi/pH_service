@@ -40,7 +40,7 @@ class pHSensor
 		
 		// Measurement commands
 		float readMeasurement(){
-			if (openConnection() == 0) return __null;
+			if (openConnection() == 0) return std::numeric_limits<float>::quiet_NaN();
 			//int clock = std::clock();
 			// send Read Command
 			sendCommand(CMD_GET_MEAS);
@@ -98,7 +98,7 @@ class pHSensor
 			uint8_t length = 10;  // Number of bytes to read
 			if (read(probeI2Cfile, inData, 10) != length) {
 				std::cout << "Failed to read from circuit." << std::endl;
-				return __null;
+				return std::numeric_limits<float>::quiet_NaN();
 			}
 			else{
 				float value;
