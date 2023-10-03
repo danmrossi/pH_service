@@ -25,21 +25,12 @@
     read input
     echo ""
     echo ""
-
-    echo "Stopping service and removing old files ..."
+    echo "Stopping service and removing all files ..."
     sudo systemctl stop pH.service
     sudo systemctl disable pH.service
     sudo rm -rf /var/lib/reef-pi/pH
     sudo rm /etc/systemd/system/pH.service
-    
-    echo "Deleting install files..."
-    sudo rm -r src/
-	  sudo rm -r LICENSE
-	  sudo rm -r README.md
-    sudo rm pH_service_1.0.zip
-    sudo rm install_pH.sh
     sudo rm uninstall_pH.sh
-    sudo rm .gitattributes
     echo ""
     echo ""
     echo "----------------------------------------------------------------------------"
