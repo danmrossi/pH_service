@@ -10,7 +10,7 @@
 
 void saveToFile(float saveValue, std::string filename){
 	// std::cout << filename << std::endl;
-	if (isnan(saveValue) || saveValue <= 3.0){ return; }
+	if (isnan(saveValue) || saveValue <= 3.8){ return; }
 	// open file to save value
 	std::fstream saveFile;
 	saveFile.open(filename,std::ios::out);
