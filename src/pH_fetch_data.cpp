@@ -8,9 +8,9 @@
 #include <linux/i2c-dev.h> // required for constant definitions
 #include "pH_sensor.cpp"
 
-void saveToFile(float saveValue, std::string filename){
+int saveToFile(float saveValue, std::string filename){
 	// std::cout << filename << std::endl;
-	if (isnan(saveValue) || saveValue <= 3.8){ return; }
+	if (isnan(saveValue) || saveValue < 2.0){ return 0; }
 	// open file to save value
 	std::fstream saveFile;
 	saveFile.open(filename,std::ios::out);
@@ -18,6 +18,7 @@ void saveToFile(float saveValue, std::string filename){
 		saveFile << saveValue;  // save value
 		saveFile.close();  // close file
 	}
+	return 1;
 }
 
 //////////
@@ -30,5 +31,9 @@ int main(int argc, char *argv[])
 	if (argc > 1) pH_sensor.setAddress(atoi(argv[1]));
 	// read and save
 	std::string filePath = "/var/lib/reef-pi/pH/";
-	saveToFile(pH_sensor.readMeasurement(),filePath+"pH.dat");
+	if (!saveToFile(pH_sensor.readMeasurement(),filePath+"pH.dat")){
+		pH_sensor.saveDataToFile(filePath+"errorData.dat");
+		return 0;
+	}
+	return 1;
 }
