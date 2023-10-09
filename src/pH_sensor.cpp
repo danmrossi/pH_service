@@ -40,12 +40,22 @@ class pHSensor
 		
 		// Measurement commands
 		float readMeasurement(){
-			if (openConnection() == 0) return __null;
+			if (openConnection() == 0) return -1.0;
 			//int clock = std::clock();
 			// send Read Command
 			sendCommand(CMD_GET_MEAS);
 			// Read
 			return readFloatValue();
+		}
+		
+		void saveDataToFile(std::string filename){
+			// open file to save value
+			std::fstream saveFile;
+			saveFile.open(filename,std::ios::out);
+			if(saveFile.is_open()){
+				saveFile << inData;
+				saveFile.close();
+			}
 		}
 	
 	private:
@@ -96,14 +106,22 @@ class pHSensor
 		
 		float readFloatValue(){
 			uint8_t length = 10;  // Number of bytes to read
-			if (read(probeI2Cfile, inData, 10) != length) {
+			if (read(probeI2Cfile, inData, length) != length) {
 				std::cout << "Failed to read from circuit." << std::endl;
-				return __null;
+				return -1.0;
 			}
 			else{
 				float value;
+				// break on incorrect response
+				if (inData[0] != (CMD_GET_MEAS & 0xFF)){return -1.0;}
+				
+				// break on incomplete response
+				short nullCount = 0;
+				for(short b=0; b < length; b++) {if (inData[b] == 0) {nullCount++;}}
+				if (nullCount == length){return -1.0;}
+				
 				// remove first character of data
-				for(short b=0; b < 10; b++) {inData[b] = inData[b+1];}
+				for(short b=0; b < length; b++) {inData[b] = inData[b+1];}
 				
 				value = std::stof(inData);  // try to extract ph from data
 				return value;
