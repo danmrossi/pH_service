@@ -34,3 +34,11 @@ Raspbian service to read out the Robo-Tank pH sensor data without communication 
  - Then, In SSH command console type:
  - sudo bash uninstall_pH.sh
  - The uninstall_pH.sh file will also be removed as part of the process
+
+## How to compile your own variant
+ - Install pH Service as above
+ - Type in cd /var/lib/reef-pi/pH and press enter
+ - Make your changes in the .cpp files in this directory
+ - Delete "pH_fetch_data" file
+ - Run "g++ pH_fetch_data.cpp -o pH_fetch_data" - without the ""
+ - This compiles the changes you have made and generates a new "pH_fetch_data" file
