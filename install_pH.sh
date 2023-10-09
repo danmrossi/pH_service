@@ -19,7 +19,7 @@
     echo "limitations under the License."
     echo ""
     echo ""
-    echo "press any key to INSTALL..."
+    echo "Press the ENTER key to INSTALL..."
     echo ""
     echo ""
     read input
