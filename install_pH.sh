@@ -49,9 +49,10 @@
     sudo rm -r src/
 	  sudo rm -r LICENSE
 	  sudo rm -r README.md
-    sudo rm pH_service_1.0.zip
+    sudo rm pH_service_1.1.zip
     sudo rm install_pH.sh
     sudo rm .gitattributes
+    sudo rm .gitignore
     echo "Establishing and starting service..."
     sudo systemctl enable pH.service
     sudo systemctl start pH.service
