@@ -19,7 +19,7 @@
     echo "limitations under the License."
     echo ""
     echo ""
-    echo "press any key to UNINSTALL..."
+    echo "Press the ENTER key to UNINSTALL..."
     echo ""
     echo ""
     read input
