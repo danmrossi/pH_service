@@ -112,13 +112,10 @@ class pHSensor
 			}
 			else{
 				float value;
-				// break on incorrect response
-				if (inData[0] != (CMD_GET_MEAS & 0xFF)){return -1.0;}
-				
 				// break on incomplete response
 				short nullCount = 0;
-				for(short b=0; b < length; b++) {if (inData[b] == 0) {nullCount++;}}
-				if (nullCount == length){return -1.0;}
+				for(short b=0; b < 6; b++) { if (inData[b] == 0) {nullCount++;} }
+				if (nullCount > 0){ return -1.0; }
 				
 				// remove first character of data
 				for(short b=0; b < length; b++) {inData[b] = inData[b+1];}
