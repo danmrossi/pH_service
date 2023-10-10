@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	if (argc > 1) pH_sensor.setAddress(atoi(argv[1]));
 	// read and save
 	std::string filePath = "/var/lib/reef-pi/pH/";
-	if (!saveToFile(pH_sensor.readMeasurement(),filePath+"pH.dat")){
+	if (saveToFile(pH_sensor.readMeasurement(),filePath+"pH.dat") == 0){
 		pH_sensor.saveDataToFile(filePath+"errorData.dat");
 		return 0;
 	}
