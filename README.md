@@ -39,6 +39,6 @@ Raspbian service to read out the Robo-Tank pH sensor data without communication 
  - Install pH Service as above
  - Type in cd /var/lib/reef-pi/pH and press enter
  - Make your changes in the .cpp files in this directory
- - Delete "pH_fetch_data" file
+ - Delete the current "pH_fetch_data" file - this file will be recreated with the step below
  - Run "g++ pH_fetch_data.cpp -o pH_fetch_data" - without the ""
  - This compiles the changes you have made and generates a new "pH_fetch_data" file
